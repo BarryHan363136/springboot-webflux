@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -26,7 +28,7 @@ public class UserController {
 
     @GetMapping("/hello_world")
     public Mono<String> sayHelloWorld(){
-        return Mono.just("Hello World!");
+        return Mono.just("Hello World!"+new Date()+",追加内容！");
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource not found")
